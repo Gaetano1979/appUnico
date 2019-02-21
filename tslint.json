@@ -31,7 +31,12 @@
         ]
       }
     ],
+    "typedef-whitespace":false,
     "no-consecutive-blank-lines": false,
+    "no-trailing-whitespace":false,
+    "whitespace":true,
+    "no-irregular-whitespace":true,
+    "one-line":true,
     "no-console": [
       true,
       "debug",

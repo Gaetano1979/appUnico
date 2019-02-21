@@ -1,0 +1,116 @@
+<div class="row">
+    <div class="col text-center animated lightSpeedIn">
+        <h2 class="text-black-50">Actualizar Cliente</h2>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col">
+        <div *ngIf="messageActualizacion" class="alert alert-info animated fadeInDown" role="alert">
+
+            {{messageActualizacion}}
+        </div>
+    </div>
+
+</div>
+
+<div class="row mt-2">
+    <div class="col">
+
+        <form [formGroup]='forma' (ngSubmit)='guardar()' novalidate>
+            <div formArrayName="cliente" class="col">
+                <div class="form-group row">
+                    <div class="col">
+                        <label class="col-form-label">Cliente</label>
+                        <input type="text" class="form-control form-control-sm shadow" formControlName='0' autofocus>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <label class="col-form-label">Documento Dni</label>
+                        <input type="text" class="form-control form-control-sm shadow" formControlName='1'>
+                    </div>
+                    <div class="col">
+                        <label class="col-form-label">Documento Ruc</label>
+                        <input type="text" class="form-control form-control-sm shadow" formControlName='2'>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <label class="col-form-label">Ciudad</label>
+                        <input type="text" class="form-control form-control-sm shadow" formControlName='3'>
+                    </div>
+                    <div class="col">
+                        <label class="col-form-label">Zona</label>
+                        <input type="text" class="form-control form-control-sm shadow" formControlName='4'>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <label class="col-form-label">Direccion</label>
+                        <input type="text" class="form-control form-control-sm shadow" formControlName='5'>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <label class="col-form-label">Telefono</label>
+                        <input type="text" class="form-control form-control-sm shadow" formControlName='6'>
+
+                    </div>
+                    <div class="col">
+                        <label class="col-form-label">Cellular</label>
+                        <input type="text" class="form-control form-control-sm shadow" formControlName='7'>
+
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <label class="col-form-label">Correo</label>
+                        <input type="text" class="form-control form-control-sm shadow" formControlName='8'>
+                    </div>
+                </div>
+
+            </div>
+            <!-- <div class="form-group row">
+                <div class="col">
+
+                    <label for="Nombre">Email</label>
+                    <input type="email" class="form-control form-control-sm shadow" formControlName='2'>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label for="exampleInputPassword1">Telefono</label>
+                    <input type="number" class="form-control form-control-sm shadow" formControlName='3'>
+                </div>
+                <div class="col">
+
+                    <label for="exampleInputPassword1">Cellular</label>
+                    <input type="number" class="form-control form-control-sm shadow" formControlName='4'>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label for="exampleInputPassword1">Ciudad</label>
+                    <input type="text" class="form-control form-control-sm shadow" formControlName='5'>
+                </div>
+                <div class="col">
+
+                    <label for="exampleInputPassword1">Zona</label>
+                    <input type="text" class="form-control form-control-sm shadow" formControlName='6'>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label class="col-form-label">Direccion</label>
+                    <input type="text" class="form-control form-control-sm shadow" formControlName='7'>
+                </div>
+            </div> -->
+            <!-- <button type="submit" class="btn btn-outline-primary disabled" *ngIf="!forma.valid" (click)="guardar()">Pagar</button> -->
+
+            <button type="submit" class="btn btn-primary" [disabled]="!forma.valid">Actualizar</button>
+        </form>
+
+    </div>
+</div>

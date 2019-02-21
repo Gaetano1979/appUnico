@@ -1,0 +1,67 @@
+<div class="row mt-4">
+    <div class="col">
+
+        <div class="card border-primary mb-3">
+            <div class="card-header bg-transparent border-primary text-center">{{cliente.cliente}}</div>
+            <div class="card-body text-primary">
+                <h5 class="card-title"><i class="fas fa-city"></i> {{cliente.ciudad}}</h5>
+                <div class="row">
+
+                    <div class="col">
+                        <p class="card-text"><i class="fas fa-directions"></i> {{cliente.direccion}}</p>
+                    </div>
+                </div>
+                <div class="row border-top border-info mt-2">
+                    <div class="col mt-2" *ngIf="((cliente.telefono).trim()).length!==0">
+                        <p><i class="fas fa-mobile-alt mr-2 "></i> {{cliente.telefono}}</p>
+                    </div>
+                    <div class="col mt-2" *ngIf="((cliente.cellulare).trim()).length!==0">
+                        <p><i class="fas fa-mobile-alt mr-2 "></i> {{cliente.cellulare}}</p>
+                    </div>
+                    <div class="col mt-2" *ngIf="((cliente.telefono).trim()).length===0">
+                        <p><i class="fas fa-mobile-alt mr-2 "></i> ------- </p>
+                    </div>
+                    <div class="col mt-2" *ngIf="((cliente.cellulare).trim()).length===0">
+                        <p><i class="fas fa-mobile-alt mr-2 "></i> ------- </p>
+                    </div>
+                </div>
+                <div class="row  mt-2">
+                    <div class="col mt-2" *ngIf="((cliente.correo).trim()).length!==0">
+                        <p><i class="fas fa-at mr-2"></i> {{cliente.correo}}</p>
+                    </div>
+                    <div class="col mt-2" *ngIf="((cliente.correo).trim()).length===0">
+                        <p><i class="fas fa-at mr-2"></i> ------- </p>
+                    </div>
+                    <div class="col mt-2" *ngIf="((cliente.vendedor).trim()).length!==0">
+                        <p><i class="fas fa-user-tie mr-2 "></i> {{cliente.vendedor}}</p>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col text-right">
+                        <p class="card-text">Saldo <span class="text-danger">{{cliente.saldo}}</span></p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-transparent border-prytext-primary row ">
+                <div class="col">
+                    Ruc <span>{{cliente.Ruc}}</span>
+                </div>
+
+                <div class="col">
+                    <i class="fas fa-building"></i> {{cliente.zona}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-comentarios></app-comentarios>
+
+<div class="row">
+    <div class="col text-right">
+        <a class="btn btn-outline-secondary btn-sm" routerLink='/facturas/{{cliente.id}}'>Facturas</a>
+    </div>
+    <div class="col text-left">
+        <a class="btn btn-outline-primary btn-sm" routerLink='/cliente'>Clientes</a>
+    </div>
+</div>

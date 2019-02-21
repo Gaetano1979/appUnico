@@ -1,0 +1,106 @@
+<div class="row mt-5">
+    <div class="col text-center animated shake">
+        <h1><i class="fas fa-file"></i> Recibos</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col" [ngClass]="{'alert alert-info': mensaje}">
+        {{mensaje}}
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col">
+        <div class="card border border-primary">
+            <div class="card-header ">
+                <h5 for="" class="card-title"><i class="far fa-file-alt mr-2"></i>{{fattura.Documento}}</h5>
+
+            </div>
+            <div class="card-body">
+
+
+
+            </div>
+            <!-- <div class="card-footer">
+                <p>Saldo /. <span>{{fattura.Saldo}}</span></p>
+            </div> -->
+        </div>
+        <!-- <div class="row mt-2">
+            <div class="col text-right">
+                <a class="btn btn-sm btn-outline-dark" routerLink='/facturas/{{cliente.id}}'>Cancelar</a>
+            </div>
+            <div class="col">
+                <button class="btn btn-sm btn-outline-info">Enviar</button>
+            </div>
+        </div> -->
+    </div>
+</div>
+<div class="col">
+
+    <form class="mt-4" [formGroup]="forma" (ngSubmit)="postRecibo()" novalidate>
+        <div>
+
+            <div class="form-group row">
+                <label class="col-6 col-form-label-sm">Numero Recibo</label>
+                <div class="col">
+                    <input type="text" class="form-control form-control-sm shadow text-right" placeholder="0000" formControlName="documento">
+                </div>
+            </div>
+            <div class="form-group row">
+
+                <label class="col-6 col-form-label-sm">Monto</label>
+                <div class="col">
+                    <input type="number" class="form-control form-control-sm shadow text-right" formControlName="cantidad">
+                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>  -->
+                </div>
+            </div>
+            <div class="form-group row">
+
+                <div class="col">
+                    <label for="exampleInputPassword1">Responsable</label>
+                    <input type="text" class="form-control form-control-sm shadow" formControlName="responsable">
+                </div>
+                <div class="col">
+                    <label for="exampleInputPassword1">Fecha</label>
+                    <input type="date" class="form-control form-control-sm shadow" formControlName="fecha_pag">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+
+                    <label for="exampleInputPassword1">Paga con</label>
+                    <select class="form-control form-control-sm shadow" formControlName="paga_con">
+                                <option selected>Contado</option>
+                                <option>Deposito</option>
+                                <option>Tarjeta</option>
+                                
+                    </select>
+                </div>
+            </div>
+            <button type="button" data-toggle="modal" data-target='#prova' class="btn btn-primary">Pagar</button>
+            <!-- <button type="submit" class="btn btn-primary">Pagar</button> -->
+
+        </div>
+
+    </form>
+</div>
+
+<!-- modal -->
+<div class="modal animated fadeIn" tabindex="-1" role="dialog" id="prova">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+            </div>
+            <div class="modal-body">
+                <p>Depositar Recibo</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="sendEmail()">Pagar</button>
+            </div>
+        </div>
+    </div>
+</div>

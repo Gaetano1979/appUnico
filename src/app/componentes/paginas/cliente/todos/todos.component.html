@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="col text-center animated zoomIn">
+        <h2 class="text-black-50">Lista Clientes</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col text-center">
+
+        <label for="">Ciudad</label>
+        <select [disabled]="!cargado" class="custom-select custom-select-sm" #value (change)="onEvent(value.value)">
+                        <option selected >{{itemLocal}}</option>
+                        <option  *ngFor="let item of ciudades.sort()">{{item}}</option>           
+        </select>
+
+    </div>
+</div>
+<div class="row">
+
+    <div class="col text-center">
+        <label for="">Zona</label>
+        <select [disabled]="!cargadoZona" class="custom-select custom-select-sm" #value1 (change)="onEvent(value.value,value1.value)">
+                    <option selected >Selecionar Zona</option>
+                    <option  *ngFor="let item of zonasprova.sort()">{{item}}</option>           
+        </select>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+
+        <table class="table table-sm" *ngIf="dataService.length!==0">
+            <thead>
+                <tr>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Saldo</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let item of dataService" (click)="cliente(item)">
+
+
+                <div class="modal animated fadeIn" tabindex="-1" role="dialog" id="prova">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Detalles cliente</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-warning">{{nombre}}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="get()">Ver Facturas</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <tr data-toggle="modal" data-target='#prova' *ngIf="item.saldo!==0">
+
+                    <th scope="row">{{item.cliente}}</th>
+                    <td>{{item.saldo}}</td>
+
+                </tr>
+
+
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
