@@ -11,13 +11,10 @@ export class HomeComponent implements OnInit {
   forma:FormGroup;
   message='';
   modal=HTMLButtonElement;
-  // modal=HTMLElement;
-
-
+  cargando:boolean;
   constructor(private activate:ActivatedRoute,private router:Router) { }
 
   ngOnInit() {
-
     this.forma=new FormGroup({
       email:new FormControl('',Validators.required),
       password:new FormControl('',Validators.required)

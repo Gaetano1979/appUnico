@@ -47,7 +47,7 @@ export class TodosComponent implements OnInit {
   ngOnInit() {
 
     this.itemLocal=localStorage.getItem('ciudad');
-    if(this.itemLocal.length===0){
+    if(!this.itemLocal || this.itemLocal.length===0){
       this.itemLocal='Selectiona la Ciudad';
     }
     

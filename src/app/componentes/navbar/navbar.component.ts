@@ -25,7 +25,9 @@ export class NavbarComponent implements OnInit {
     this.unico.getBuscar(termino).subscribe((dato:any)=>{
       console.log(dato);
       this.unico.setBuscar(dato);
-      this.router.navigate(['buscar']);      
+      this.unico.setObj(dato);
+      
+      
     });
     
   }

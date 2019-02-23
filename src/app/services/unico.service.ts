@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UnicoService {
+  
   cliente:any={};
-  dato:any;
+  dato:Observable<any>;
   fattura:any;
   nombre:string=localStorage.getItem('nombre');
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router:Router) { }
 
   // servicio interno
   setCliente(item:any){
@@ -20,14 +23,50 @@ export class UnicoService {
   // termino buscado
   setBuscar(dato:any){
     localStorage.setItem('buscar',JSON.stringify(dato));
+    
   }
 
   getBuscarLocal(){
-    return this.dato=JSON.parse(localStorage.getItem('buscar'));
+    
+    return this.dato=JSON.parse(localStorage.getItem('buscar')); 
+    
   }
   setFattura(data:any){
     
     this.fattura=localStorage.setItem('fattura',JSON.stringify(data));
+  }
+
+  setObj(datalocal:any){
+    
+    const Data=localStorage.setItem('buscar',JSON.stringify(datalocal));
+    return new Observable(data=>{
+      data.next(datalocal);
+      // console.log(data);
+      
+    });
+  }
+
+  getObj2(){
+    const Data=JSON.parse(localStorage.getItem('buscar')); 
+    
+    this.setObj(Data).subscribe(data=>{
+      return data;
+    });
+     
+    
+  }
+
+  getObs(){
+
+    this.dato=JSON.parse(localStorage.getItem('buscar')); 
+    
+    return new Observable(data=>{
+      data.next(this.dato);
+      console.log(data);
+      
+    });
+    
+    
   }
 
   
@@ -37,11 +76,13 @@ export class UnicoService {
   }
 
   getBuscar(termino:string){
+    this.router.navigate(['buscar']);
     console.log('servizio getclientes aperto');
     const headers= new HttpHeaders({
       'Content-Type':'application/x-www-form-urlencoded',
       termino
     });
+
     return this.http.get(`https://servizio.herokuapp.com/buscar`, {headers} );
   }
 

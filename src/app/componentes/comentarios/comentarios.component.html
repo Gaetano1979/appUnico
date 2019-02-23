@@ -1,8 +1,10 @@
-<form>
+<form [formGroup]="txtComentario">
     <div class="input-group input-group-sm mb-3 shadow">
         <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-sm">Comentarios</span>
         </div>
-        <input #comentario (keydown.enter)="PostComentario()" type="text" class="form-control">
+        <!-- <input #comentario (keydown.enter)="PostComentario()" type="text" formControlName='comentario' class="form-control">
+         -->
+        <textarea [ngClass]="{'is-invalid': txtComentario.invalid,'is-valid':txtComentario.valid}" class="form-control" #comentario (blur)='PostComentario()' formControlName='comentario'></textarea>
     </div>
 </form>

@@ -3,9 +3,8 @@
         <h2 class="text-black-50">Lista Clientes</h2>
     </div>
 </div>
-<div class="row">
+<div class="row mt-2">
     <div class="col text-center">
-
         <label for="">Ciudad</label>
         <select [disabled]="!cargado" class="custom-select custom-select-sm" #value (change)="onEvent(value.value)">
                         <option selected >{{itemLocal}}</option>
@@ -14,7 +13,7 @@
 
     </div>
 </div>
-<div class="row">
+<div class="row mt-2">
 
     <div class="col text-center">
         <label for="">Zona</label>
@@ -25,7 +24,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row mt-2">
     <div class="col">
 
         <table class="table table-sm" *ngIf="dataService.length!==0">

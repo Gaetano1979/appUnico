@@ -43,7 +43,10 @@ export class RecibosComponent implements OnInit {
         cliente:new FormControl(this.cliente.cliente),
         fattura:new FormControl((this.fattura.Documento).trim()),
         destinario:new FormControl(this.cliente.email || 'gaetano.sabino@gmail.com'),
-        subject:new FormControl(`Envio documento`)
+        subject:new FormControl(`Envio documento`),
+        saldo:new FormControl(this.fattura.Saldo),
+        zona:new FormControl(this.cliente.zona),
+        observaciones:new FormControl('No hay observaciones ')
     });
   }
   postRecibo(){

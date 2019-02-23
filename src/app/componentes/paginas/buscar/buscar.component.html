@@ -1,7 +1,66 @@
-<div class="row">
+<!-- <div class="row">
     <div class="col">
         <h3>Buscar</h3>
         {{this.dato.resultado|json}}
-
     </div>
-</div>
+</div> -->
+
+<div class="row" *ngFor="let item of cliente">
+    <div class="col">
+        <div class="card border-primary mb-3">
+            <div class="card-header bg-transparent border-primary text-center">{{item.cliente}}</div>
+            <div class="card-body text-primary">
+                <h5 class="card-title"><i class="fas fa-city"></i> {{item.ciudad}}</h5>
+                <div class="row">
+
+                    <div class="col">
+                        <p class="card-text"><i class="fas fa-directions"></i> {{item.direccion}}</p>
+                    </div>
+                </div>
+                <div class="row border-top border-info mt-2">
+                    <div class="col mt-2">
+                        <p><i class="fas fa-mobile-alt mr-2 "></i> {{item.telefono1}}</p>
+                    </div>
+                    <div class="col mt-2">
+                        <p><i class="fas fa-mobile-alt mr-2 "></i> {{item.telefono2}}</p>
+                    </div>
+                    <div class="col mt-2">
+                        <p><i class="fas fa-at mr-2 "></i> {{item.correo}} </p>
+                    </div>
+                    <div class="col mt-2">
+                        <p><i class="fas fa-user-tie mr-2 "></i> {{item.vendedor}} </p>
+                    </div>
+                </div>
+                <!--<div class="row  mt-2">
+                    <div class="col mt-2" *ngIf="((cliente.correo).trim()).length!==0">
+                        <p><i class="fas fa-at mr-2"></i> {{cliente.correo}}</p>
+                    </div>
+                    <div class="col mt-2" *ngIf="((cliente.correo).trim()).length===0">
+                        <p><i class="fas fa-at mr-2"></i> ------- </p>
+                    </div>
+                    <div class="col mt-2" *ngIf="((cliente.vendedor).trim()).length!==0">
+                        <p><i class="fas fa-user-tie mr-2 "></i> {{cliente.vendedor}}</p>
+                    </div>
+                </div> -->
+                <!-- <div class="row ">
+                    <div class="col text-right">
+                        <p class="card-text">Saldo <span class="text-danger">{{item.saldo}}</span></p>
+
+                    </div>
+                </div> -->
+                <!-- </div>
+            <div class="card-footer bg-transparent border-top border-info">
+                <div class="row">
+
+                    <div class="col">
+                        Ruc <span>{{item.ruc}}</span>
+                    </div>
+
+                    <div class="col">
+                        <i class="fas fa-building"></i> {{item.zona}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
